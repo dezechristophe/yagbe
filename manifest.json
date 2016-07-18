@@ -1,0 +1,40 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "__MSG_extDefaultTitle__"
+   },
+   "content_scripts": [ {
+      "css": [ "jquery-ui.css", "jquery.autocomplete.css" ],
+      "js": [ "jquery-1.5.2.min.js", "jquery-ui-1.7.3.custom.min.js", "jquery.autocomplete.min.js", "content.js" ],
+      "matches": [ "*://*/*" ]
+   }, {
+      "all_frames": true,
+      "exclude_globs": [ "*://*.zcool.com.cn/*", "*://dexknows.whitepages.com/*", "*://tech.sina.com.cn/*" ],
+      "js": [ "support/ext.js", "support/support.js" ],
+      "matches": [ "http://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_extDescription__",
+   "homepage_url": "http://www.jimnuzzi.com/YAGBE",
+   "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png",
+      "48": "icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsIx9fbdA+guoiaC4Y0gxoYw9Xz77npt2yaJwK7FynAElp+KP0qEcLkOc4f66F6kfLVvbw1V5ehPRDPY6cyb61gJI2tG0kX8CQ1c9dSzgM0DHlX9T7PoUeG46kxvBY+PjH9CFxCO9/JPMb/usIQIg1KaBxRquwPbnUs4B5kzL+MNNMwJdErowekKPR76H3gQkfnCzLn15znf0Grs+7jhUkdAqzpV18jqeXCsfonWv25O6Za+Kd9kqE/hLo7tW2lxBxdN1+oHtW172Rt/qoWp2QVJiHMEHU5nVnZoqyb9Rh5o+T9/g2Cw7OthpIGFb+MZhB3dQKBIWZh8NHV/iqnXEVwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "9.0",
+   "name": "__MSG_extName__",
+   "omnibox": {
+      "keyword": "yagbe"
+   },
+   "options_page": "options.html",
+   "permissions": [ "tabs", "contextMenus", "http://www.google.com/bookmarks/", "https://www.google.com/bookmarks/", "chrome://favicon/", "http://*/*", "https://*/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0.3",
+   "web_accessible_resources": [ "support/pages/adoptions.html", "support/pages/privacy_policy.html", "images/*.*" ]
+}

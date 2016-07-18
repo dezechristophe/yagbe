@@ -1,0 +1,53 @@
+{
+   "add_bookmark_here": {
+      "message": "Add Bookmark Here"
+   },
+   "bookmark_current_page": {
+      "message": "Bookmark Current Page"
+   },
+   "bookmark_link": {
+      "message": "Bookmark Link"
+   },
+   "bookmark_tabs_here": {
+      "message": "Bookmark Tabs Here"
+   },
+   "delete": {
+      "message": "Delete"
+   },
+   "edit": {
+      "message": "Edit"
+   },
+   "email_bookmark": {
+      "message": "Email Bookmark"
+   },
+   "extDefaultTitle": {
+      "description": "Default title for browser action",
+      "message": "YAGBE - Yet Another Google Bookmarks Extension"
+   },
+   "extDescription": {
+      "description": "Extension description",
+      "message": "YAGBE - Displays Google Bookmarks in a tree. Supports nested labels, searching, sorting, creating, and managing Google Bookmarks."
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Yet Another Google Bookmarks Extension"
+   },
+   "open_in_current_tab": {
+      "message": "Open In Current Tab"
+   },
+   "open_in_incognito_window": {
+      "message": "Open In Incognito Window"
+   },
+   "open_in_new_tab": {
+      "message": "Open In New Tab"
+   },
+   "open_in_new_window": {
+      "message": "Open In New Window"
+   },
+   "open_in_tabs": {
+      "message": "Open In Tabs"
+   },
+   "search_bookmarks": {
+      "message": "Search Bookmarks"
+   }
+}

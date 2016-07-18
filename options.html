@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YAGBE Options</title>
+    <link rel="stylesheet" type="text/css" href="options.css" />
+    <link rel="stylesheet" type="text/css" href="ColorPicker.css" />
+
+    <script type="text/javascript" src="jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="ColorPicker.min.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+  </head>
+  <body>
+    <header id="title">
+      <img src="icon48.png" style="vertical-align: middle; margin-right: 20px;" />YAGBE - Yet Another Google Bookmarks Extension
+    </header>
+    <nav id="nav">
+      <ul>
+        <li><a href="#bookmark">Bookmarks</a></li>
+        <li><a href="#tree">Tree UI</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#popup">Popup UI</a></li>
+        <li><a href="#shortcuts">Shortcuts</a></li>
+      </ul>
+    </nav>
+    <section id="content">
+      <div id="bookmark">
+        <div class="cssForm">
+          <div class="formRow">
+            <label for="newTab">Open in New Tab:</label>
+            <input type="checkbox" name="newTab" id="newTab" />
+          </div>
+          <div class="formRow">
+            <label for="labelUnlabeled">Label Unlabeled Bookmarks:</label>
+            <input type="checkbox" name="labelUnlabeled" id="labelUnlabeled" />
+            <input type="text" name="unlabeledLabel" id="unlabeledLabel" size="24" value="Unlabeled" />
+          </div>
+          <div class="formRow">
+            <label for="readLaterLabel">"Read Later" Label:</label>
+            <input type="text" name="readLaterLabel" id="readLaterLabel" size="24" value="Unread Bookmarks" />
+          </div>
+          <div class="formRow">
+            <label for="sortBy">Sort By:</label>
+            <select id="sortBy">
+              <option value="none">None</option>
+              <option value="label" selected>Label</option>
+              <option value="timestamp">Timestamp</option>
+            </select>
+            <select id="sortDir">
+              <option value="asc" selected>Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </div>
+          <div class="formRow">
+            <label for="autocompleteMatch">Label Autocomplete Match:</label>
+            <select id="autocompleteMatch">
+              <option value="contains">Match labels that CONTAIN text entered</option>
+              <option value="begins">Match labels that BEGIN with text entered</option>
+            </select>
+          </div>
+          <div class="formRow">
+            <label for="toolbarIcon">Toolbar Icon:</label>
+            <select id="toolbarIcon">
+              <option value="default">Default</option>
+              <option value="chrome">Chrome</option>
+              <option value="chrome2">Chrome2</option>
+            </select>
+            <span id="toolbarIconImgOn" style="height: 19px; width:19px; margin-left: 4px; display: inline-block;">&nbsp;</span>
+            <span id="toolbarIconImgOff" style="height: 19px; width:19px; margin-left: 4px; display: inline-block;">&nbsp;</span>
+          </div>
+          <div class="formRow">
+            <label for="enableNotes">Enable Bookmark Notes:</label>
+            <input type="checkbox" name="enableNotes" id="enableNotes" />
+            <span> (<b>NOTE</b>: Uncheck to resolve issues with intranet and localhost URLs in bookmarks)</span>
+          </div>
+          <!--
+          <div class="formRow">
+            <label for="showVersionHistory">Show Version History:</label>
+            <input type="checkbox" name="showVersionHistory" id="showVersionHistory" />
+            <span> (<b>NOTE</b>: If unchecked, the Version History page will not be opened after updates)</span>
+          </div>
+          -->
+          <div class="formRow">
+            <label for="dontsupport">I don't want to support you</label>
+            <input type="checkbox" name="dontsupport" id="dontsupport" />
+          </div>
+        </div>
+      </div>
+      <div id="tree">
+        <div class="cssForm">
+          <div class="formRow">
+            <label for="searchMethod">Search Results:</label>
+            <select id="searchMethod">
+              <option value="highlight" selected>Highlight in Tree</option>
+              <option value="filter">Filter Results</option>
+            </select>
+          </div>
+          <div class="formRow">
+            <label for="theme">Theme:</label>
+            <select id="theme">
+              <option value="apple">Apple</option>
+              <option value="classic">Classic</option>
+              <option value="default" selected>Default</option>
+            </select>
+          </div>
+          <div class="formRow">
+            <label for="fontSize">Font Size:</label>
+            <input type="text" name="fontSize" id="fontSize" size="8" maxlength="8" value="9pt" /><span> (include pt, px, em, %)</span>
+          </div>
+          <div class="formRow">
+            <label for="bgColor">Background Color:</label>
+            <input type="text" name="bgColor" id="bgColor" size="8" maxlength="7" value="#FFFFFF" />
+          </div>
+          <div class="formRow">
+            <label for="fontSize">Child Indent:</label>
+            <input type="text" name="indent" id="indent" size="8" maxlength="8" value="5px" /><span> (include pt, px, em, %)</span>
+          </div>
+          <div class="formRow">
+            <label for="showDots">Show Dots in Tree:</label>
+            <input type="checkbox" name="showDots" id="showDots" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showFavs">Show Favicons:</label>
+            <input type="checkbox" name="showFavs" id="showFavs" checked="true" />
+            <select id="favsType">
+              <option value="validate">Download Each Favicon</option>
+              <option value="chrome">Use Chrome Cache</option>
+              <option value="getFavicon">Use getFavicon</option>
+            </select>
+          </div>
+          <div class="formRow">
+            <label for="showLabelToolTips">Show Label Tooltips:</label>
+            <input type="checkbox" name="showLabelToolTips" id="showLabelToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showToolTips">Show Tooltips:</label>
+            <input type="checkbox" name="showToolTips" id="showToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showNameToolTips">Show Name in Tooltips:</label>
+            <input type="checkbox" name="showNameToolTips" id="showNameToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showLocToolTips">Show Location in Tooltips:</label>
+            <input type="checkbox" name="showLocToolTips" id="showLocToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showLblToolTips">Show Labels in Tooltips:</label>
+            <input type="checkbox" name="showLblToolTips" id="showLblToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showNotesToolTips">Show Notes in Tooltips:</label>
+            <input type="checkbox" name="showNotesToolTips" id="showNotesToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="showTimeToolTips">Show Timestamp in Tooltips:</label>
+            <input type="checkbox" name="showTimeToolTips" id="showTimeToolTips" checked="true" />
+          </div>
+          <div class="formRow">
+            <label for="labelSep">Nested Labels Separator:</label>
+            <input type="text" name="labelSep" id="labelSep" size="2" maxlength="1" value=">" />
+          </div>
+          <div class="formRow">
+            <label for="menuSpeed">Menu Speed:</label>
+            <input type="text" name="menuSpeed" id="menuSpeed" size="6" maxlength="6" value="100" /><span>milliseconds (1000 milliseconds = 1 second)</span>
+          </div>
+          <div class="formRow">
+            <label for="hoverExpand">Expanded Folders on Mouse Over:</label>
+            <input type="checkbox" name="hoverExpand" id="hoverExpand" checked="false" />
+          </div>
+          <div class="formRow">
+            <label for="singleExpand">Single Folder Expanded:</label>
+            <input type="checkbox" name="singleExpand" id="singleExpand" checked="false" />
+          </div>
+          <div class="formRow">
+            <label for="rememberExpanded">Remember Expanded Folder(s):</label>
+            <input type="checkbox" name="rememberExpanded" id="rememberExpanded" checked="false" />
+          </div>
+        </div>
+      </div>
+      <div id="performance">
+        <div class="cssForm">
+          <div class="formRow">
+            <label for="reqTimeout">Request Timeout:</label>
+            <input type="text" name="reqTimeout" id="reqTimeout" size="6" maxlength="6" value="5000" /><span>milliseconds (1000 milliseconds = 1 second)</span>
+          </div>
+          <div class="formRow">
+            <label for="searchDelay">Search Delay:</label>
+            <input type="text" name="searchDelay" id="searchDelay" size="6" maxlength="6" value="200" /><span>milliseconds (1000 milliseconds = 1 second)</span>
+          </div>
+          <div class="formRow">
+            <label for="searchMinChars">Minimum Search Characters:</label>
+            <input type="text" name="searchMinChars" id="searchMinChars" size="6" maxlength="6" value="1" />
+          </div>
+        </div>
+      </div>
+      <div id="popup">
+        <div class="cssForm">
+          <div class="formRow">
+            <label for="width">Popup Width:</label>
+            <input type="text" name="width" id="width" size="4" maxlength="4" value="400" /><span>px</span>
+          </div>
+          <div class="formRow">
+            <label for="height">Popup Height:</label>
+            <input type="text" name="height" id="height" size="4" maxlength="4" value="400" /><span>px</span>
+          </div>
+        </div>
+      </div>
+      <div id="shortcuts">
+        <div class="cssForm">
+          <div class="formRow">
+            <label for="newBookmarkShortcut">New Bookmark:</label>
+            <input type="checkbox" name="newBookmarkShortcut" id="newBookmarkShortcut" />
+            <select id="newBookmarkShortcutMod">
+              <option value="alt" selected>Alt</option>
+              <option value="ctrl">Ctrl</option>
+            </select>
+            <input type="text" name="newBookmarkShortcutKey" id="newBookmarkShortcutKey" size="2" maxlength="1" value="B" />
+          </div>
+          <div class="formRow">
+            <label for="searchShortcut">Search (in popup):</label>
+            <input type="checkbox" name="searchShortcut" id="searchShortcut" />
+            <select id="searchShortcutMod">
+              <option value="alt">Alt</option>
+              <option value="ctrl" selected>Ctrl</option>
+            </select>
+            <input type="text" name="searchShortcutKey" id="searchShortcutKey" size="2" maxlength="1" value="F" />
+          </div>
+          <div class="formRow">
+            <label for="showContextMenu">Enable Context Menu:</label>
+            <input type="checkbox" name="showContextMenu" id="showContextMenu" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <div style="padding-left: 250px;">
+        <button id="save">Save</button>
+        <span id="saved">Options saved</span>
+      </div>
+    </footer>
+  </body>
+</html>

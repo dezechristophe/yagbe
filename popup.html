@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+    <link rel="stylesheet" type="text/css" href="jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.autocomplete.css" />
+
+    <script type="text/javascript" src="jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="jquery.tree.min.js"></script>
+    <script type="text/javascript" src="jquery.tree.contextmenu.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.7.3.custom.min.js"></script>
+
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="title">
+        <ul id="toolbar">
+          <li><img id="reloadBookmarks" src="refresh.png" title="Refresh Bookmarks" alt="Refresh Bookmarks" width="16" height="16" /></li>
+          <li><img id="addCurrentImg" src="add.png" title="Bookmark Current Page" alt="Bookmark Current Page" width="16" height="16" /></li>
+          <li><img id="editCurrentBookmark" src="delete_off.png" title="Edit Bookmark for Current Page" alt="Edit Bookmark for Current Page" width="16" height="16" /></li>
+          <li><img id="deleteCurrentImg" src="delete_off.png" title="Delete Bookmark for Current Page" alt="Delete Bookmark for Current Page" width="16" height="16" /></li>
+          <li><img id="readLaterImg" src="read_later.png" title="Read Later" alt="Read Later" width="16" height="16" /></li>
+          <li><img id="optionsImg" src="options.png" title="Load Options Page" alt="Load Options Page" width="16" height="16" /></li>
+          <li>&nbsp;</li>
+          <li><input type="text" name="search" id="search" autocomplete="off" value="Search Bookmarks" style="color: #D0D0D0;" /></li>
+          <li>&nbsp;</li>
+          <li><img id="googleBookmarksImg" src="icon_gbm.png" title="Google Bookmarks" alt="Google Bookmarks" width="16" height="16"  /></li>
+          <li>&nbsp;</li>
+          <li><a id="logoutButton" href="https://www.google.com/accounts/Logout" title="Logout" target="_blank">Logout</a></li>
+          <li class="new_tab">&nbsp;</li>
+          <li class="new_tab">|</li>
+          <li class="new_tab">&nbsp;</li>
+          <li class="new_tab"><a id="showHistory" href="chrome://history" title="History">History</a></li>
+          <li class="new_tab">&nbsp;</li>
+          <li class="new_tab"><a id="showDownloads" href="chrome://downloads" title="Downloads">Downloads</a></li>
+        </ul>
+        <hr />
+      </div>
+      <div id="bookmarks"><div>Loading...</div></div>
+    </div>
+    <div id="deleteBmDialog" class="dialog">
+      <div>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        Are you sure you want to delete <span id="deleteBmName" style="font-weight: bold;"></span>?
+      </div>
+      <input type="hidden" name="deleteBmId" id="deleteBmId" />
+    </div>
+    <div id="deleteLblDialog" class="dialog">
+      <div>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        Are you sure you want to delete <span id="deleteLblName" style="font-weight: bold;"></span>?
+      </div>
+      <div>&nbsp;</div>
+      <div>
+        <label for="deleteLblChildren">Delete all children?</label>
+        <input type="checkbox" name="deleteLblChildren" id="deleteLblChildren" style="width: auto;" />
+      </div>
+      <div>&nbsp;</div>
+      <div id="deleteLblChildrenWarning">WARNING: This will delete ALL child labels AND ALL child bookmarks!</div>
+    </div>
+    <div id="addAllDialog" class="dialog">
+      <div>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        Adding bookmarks...
+      </div>
+    </div>
+    <div id="addDialog" class="dialog">
+      <div>
+        <label for="addName">Name:</label>&nbsp;
+        <input type="text" name="addName" id="addName" class="ui-widget-content ui-corner-all" /><br />
+        <label for="addUrl" id="addUrlLbl">Location (URL):</label>&nbsp;
+        <input type="text" name="addUrl" id="addUrl" class="ui-widget-content ui-corner-all" /><br />
+        <label for="addLabels" id="addLabelsLbl">Labels:</label>&nbsp;
+        <input type="text" name="addLabels" id="addLabels" class="ui-widget-content ui-corner-all" /><br />
+        <label for="addNotes" id="addNotesLbl">Notes:</label>&nbsp;
+        <textarea rows="3" cols="20" name="addNotes" id="addNotes" class="ui-widget-content ui-corner-all"></textarea>
+      </div>
+    </div>
+    <div id="editDialog" class="dialog">
+      <div>
+        <label for="editName">Name:</label>&nbsp;
+        <input type="text" name="editName" id="editName" class="ui-widget-content ui-corner-all" /><br />
+        <label for="editUrl">Location (URL):</label>&nbsp;
+        <input type="text" name="editUrl" id="editUrl" class="ui-widget-content ui-corner-all" disabled="true" /><br />
+        <label for="editLabels">Labels:</label>&nbsp;
+        <input type="text" name="editLabels" id="editLabels" class="ui-widget-content ui-corner-all" /><br />
+        <label for="editNotes" id="editNotesLbl">Notes:</label>&nbsp;
+        <textarea rows="3" cols="20" name="editNotes" id="editNotes" class="ui-widget-content ui-corner-all"></textarea>
+      </div>
+    </div>
+    <div id="renameDialog" class="dialog">
+      <div>
+        <label for="renameNewName">Name:</label>&nbsp;
+        <input type="text" name="renameNewName" id="renameNewName" class="ui-widget-content ui-corner-all" /><br />
+        <input type="hidden" name="renameOldName" id="renameOldName" />
+      </div>
+    </div>
+    <div id="dummyDialog" class="dialog"></div>
+  </body>
+</html>
